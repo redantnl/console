@@ -7,7 +7,7 @@
     {
       "name": "Gert Wijnalda",
       "email": "gert@redant.nl"
-    },
+    }
   ],
   "autoload": {
     "psr-4": {"RedAnt\\Console\\": ""}
