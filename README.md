@@ -25,7 +25,7 @@ Register the helper in your HelperSet:
 use RedAnt\Console\Helper\SelectHelper;
 
 // Further on in your code ...
-$this->getHelperSet()->set(new SelectHelper(), 'select');
+$this->getHelperSet()->set(new SelectHelper(), 'select'));
 ```
 
 Then you can start using the helper like this:
