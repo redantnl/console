@@ -2,6 +2,13 @@
   "name": "redant/console",
   "version": "1.0.0",
   "description": "Menu helper for Symfony Console component",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gert Wijnalda",
+      "email": "gert@redant.nl"
+    },
+  ],
   "autoload": {
     "psr-4": {"RedAnt\\Console\\": ""}
   },
