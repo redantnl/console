@@ -1,0 +1,12 @@
+{
+  "name": "redant/console",
+  "version": "1.0.0",
+  "description": "Menu helper for Symfony Console component",
+  "autoload": {
+    "psr-4": {"RedAnt\\Console\\": ""}
+  },
+  "require": {
+    "symfony/console": "2.*||^3.0",
+    "php-school/cli-menu": "^2.0"
+  }
+}
