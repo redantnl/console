@@ -1,6 +1,5 @@
 {
   "name": "redant/console",
-  "version": "1.0.0",
   "description": "Menu helper for Symfony Console component",
   "license": "MIT",
   "authors": [
