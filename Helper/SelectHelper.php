@@ -3,7 +3,7 @@
 namespace RedAnt\Console\Helper;
 
 use PhpSchool\CliMenu\CliMenu;
-use PhpSchool\CliMenu\CliMenuBuilder;
+use PhpSchool\CliMenu\Builder\CliMenuBuilder;
 use RedAnt\Console\MenuItem\ValueItem;
 use Symfony\Component\Console\Exception\RuntimeException;
 use Symfony\Component\Console\Helper\Helper;
