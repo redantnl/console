@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+require_once(__DIR__ . '/../../vendor/autoload.php');
+require_once(__DIR__ . '/../../examples/app/Commands/MenuCommand.php');
+
+use Symfony\Component\Console\Application;
+use Console\App\Commands\MenuCommand;
+
+$app = new Application();
+$app->add(new MenuCommand());
+$app->run();
