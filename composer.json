@@ -12,7 +12,7 @@
     "psr-4": {"RedAnt\\Console\\": ""}
   },
   "require": {
-    "symfony/console": "2.*||^3.0||^4.0||^5.0",
+    "symfony/console": "*",
     "php-school/cli-menu": "^2.0||^3.0||^4.0"
   }
 }
