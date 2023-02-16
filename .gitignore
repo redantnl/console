@@ -1,3 +1,4 @@
 # Vendor dependencies
 vendor/
+.idea
 composer.lock
