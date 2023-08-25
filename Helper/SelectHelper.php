@@ -26,22 +26,23 @@ class SelectHelper extends Helper
      *
      * @param InputInterface $input   An InputInterface instance
      * @param string         $title   The menu title
-     * @param array          $options The array of options
+     * @param array          $choices The array of options
+     * @param null|callable  $builder callable to add extra functionality to the builder
      *
      * @return string|null The user answer (one of the keys of options, or null if canceled)
      *
      */
-    public function select(InputInterface $input, $title, array $options)
+    public function select(InputInterface $input, string $title, array $choices, ?callable $builder = null)
     {
         if (!$input->isInteractive()) {
-            return current($options);
+            return current($choices);
         }
 
         if (!$this->isValidTty()) {
             throw new RuntimeException("No valid tty terminal available to create interactive menu.");
         }
 
-        return $this->doSelect($title, $options);
+        return $this->doSelect($title, $choices, $builder);
     }
 
     /**
@@ -55,29 +56,36 @@ class SelectHelper extends Helper
     /**
      * Asks the user to select one of the options.
      *
-     * @param string $title
-     * @param array  $options
+     * @param string        $title
+     * @param array         $choices
+     * @param null|callable $builderCallable
      *
      * @return string
      */
-    private function doSelect($title, array $options)
+    private function doSelect($title, array $choices, ?callable $builderCallable)
     {
         $builder = new CliMenuBuilder();
 
-        foreach ($options as $value => $text) {
+        foreach ($choices as $value => $text) {
             $builder->addMenuItem(new ValueItem($value, strval($text), function (CliMenu $menu) {
                 $this->selectedItem = $menu->getSelectedItem();
                 $menu->close();
             }));
         }
 
-        $menu = $builder
+        $builder
             ->setTitle(strval($title))
             ->addLineBreak(' ')
             ->setTitleSeparator('-')
             ->setWidth(80)
             ->setExitButtonText('Cancel')
-            ->build();
+        ;
+
+        if ($builderCallable) {
+            $builderCallable($builder);
+        }
+
+        $menu = $builder->build();
 
         $this->selectedItem = null;
         $menu->open();
